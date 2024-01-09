@@ -1,8 +1,9 @@
 /* ImageGallery.css */
-.image-gallery {
+
+.image-gallery-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .image-item {
@@ -10,7 +11,15 @@
   text-align: center;
 }
 
-.image-name {
-  margin-top: 5px;
+img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+p {
+  margin: 5px 0;
+  color: #333;
   font-size: 14px;
 }

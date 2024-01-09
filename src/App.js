@@ -1,6 +1,6 @@
 // App.js
 import React from 'react';
-import ImageGallery2 from './ImageGallery2';
+import ImageGallery2 from './ImageGallery';
 
 const App = () => {
   return (

@@ -4,29 +4,29 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const ImageGallery = () => {
-  const [images, setImages] = useState([]);
+  const [imageUrl, setImageUrl] = useState('');
 
   useEffect(() => {
-    const fetchImages = async () => {
+    const fetchImage = async () => {
       try {
-        const response = await axios.get('/Assets'); // Assuming your images are served from the root of your server
-        setImages(response.data);
+        const response = await axios.get('/Assets/Characters/blue_dragon.png');
+        setImageUrl(response.data);
       } catch (error) {
-        console.error('Error fetching images:', error);
+        console.error('Error fetching image:', error);
       }
     };
 
-    fetchImages();
+    fetchImage();
   }, []);
 
   return (
     <div>
-      {images.map((image, index) => (
-        <div key={index}>
-          <img src={`/Assets/${image}`} alt={`Image ${index + 1}`} />
-          <p>{image}</p>
+      {imageUrl && (
+        <div>
+          <img src={imageUrl} alt="Example" />
+          <p>Example Image</p>
         </div>
-      ))}
+      )}
     </div>
   );
 };

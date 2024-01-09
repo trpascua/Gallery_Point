@@ -2,8 +2,9 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './ImageGallery.css'; // Import the CSS file
 
-const ImageGallery2 = () => {
+const ImageGallery = () => {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
@@ -12,13 +13,12 @@ const ImageGallery2 = () => {
         const charactersResponse = await axios.get('/Assets/Characters');
         const backgroundResponse = await axios.get('/Assets/Background');
 
-        // Add subdirectory information to each image
         const charactersImages = charactersResponse.data.map(image => `Characters/${image}`);
         const backgroundImages = backgroundResponse.data.map(image => `Background/${image}`);
 
-        // Concatenate the image filenames from both subdirectories
         const allImages = [...charactersImages, ...backgroundImages];
 
+				console.log("SEE IMAGS", allImages);
         setImages(allImages);
       } catch (error) {
         console.error('Error fetching images:', error);
@@ -32,7 +32,7 @@ const ImageGallery2 = () => {
     <div className="image-gallery-container">
       {images.map((image, index) => (
         <div key={index} className="image-item">
-          <img src={`/Assets/${image}`} alt={`Image ${index + 1}`} />
+          <img src={`.public/Assets/${image}`} alt={`Image ${index + 1}`} />
           <p>{image}</p>
         </div>
       ))}
@@ -40,4 +40,4 @@ const ImageGallery2 = () => {
   );
 };
 
-export default ImageGallery2;
+export default ImageGallery;
