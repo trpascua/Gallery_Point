@@ -1,0 +1,16 @@
+/* ImageGallery.css */
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.image-item {
+  margin: 10px;
+  text-align: center;
+}
+
+.image-name {
+  margin-top: 5px;
+  font-size: 14px;
+}
